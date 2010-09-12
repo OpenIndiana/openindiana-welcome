@@ -1,0 +1,5 @@
+# List of source files which contain translatable strings.
+
+data/desktop/openindiana-welcome.desktop.in
+data/desktop/openindiana-about.desktop.in
+src/openindiana-about.py

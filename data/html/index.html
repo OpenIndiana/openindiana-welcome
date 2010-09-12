@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="stylesheets/default.css">
+<title>Welcome to OpenIndiana</title>
+
+<script type="text/javascript">
+var valid_languages = {
+    "en": 1
+  };
+
+function select_language ()
+{
+  var langtag = window.navigator.language;
+  var i;
+  var parts;
+
+  if (!langtag)
+  {
+    return "C";
+  }
+
+  parts = langtag.split("-");
+
+  for (i = parts.length; i > 0; i--)
+  {
+    lang = parts.join("-")
+    if (valid_languages[lang])
+    {
+      return lang;
+    }
+    parts.pop()
+  }
+
+  return "C";
+}
+
+location.replace("./" + select_language() + "/index.html");
+</script>
+</head>
+<body>
+<h1><img src="images/oi-logo.png"></h1>
+<h2>Welcome to OpenIndiana – A Community Distribution of Oracle
+OpenSolaris</h2>
+<ul>
+<li><a href="C/index.html" title="Default Language">Default
+Language</a></li>
+<li><a href="en/index.html" title="English">English</a></li>
+<li><a href="de/index.html" title="Deutsch">Deutsch</a></li>
+</ul>
+</body>
+</html>

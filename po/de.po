@@ -1,0 +1,87 @@
+# German translations for openindiana-welcome package.
+# Copyright (C) 2010 The OpenIndiana Project
+# This file is distributed under the same license as the openindiana-welcome package.
+# Guido Berhoerster <guido+openindiana@berhoerster.name>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openindiana-welcome 0.1\n"
+"Report-Msgid-Bugs-To: http://openindiana.org/\n"
+"POT-Creation-Date: 2010-09-03 14:06+0200\n"
+"PO-Revision-Date: 2010-09-03 14:14+0200\n"
+"Last-Translator: Guido Berhoerster <guido+openindiana@berhoerster.name>\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/desktop/openindiana-welcome.desktop.in.h:1
+#: ../data/desktop/openindiana-about.desktop.in.h:1
+msgid "About OpenIndiana"
+msgstr "Über OpenIndiana"
+
+#: ../data/desktop/openindiana-welcome.desktop.in.h:2
+#: ../data/desktop/openindiana-about.desktop.in.h:2
+msgid "OpenIndiana version, licence and useful links"
+msgstr "OpenIndiana Version, Lizenz und nützliche Links"
+
+#: ../src/openindiana-about.py:42
+msgid ""
+"Copyright 2010 The OpenIndiana Project.\n"
+"Copyright 2010 Oracle Corporation and/or its affiliates.\n"
+"All Rights Reserved. Use is subject to license terms."
+msgstr ""
+
+#: ../src/openindiana-about.py:44
+msgid "Release"
+msgstr ""
+
+#: ../src/openindiana-about.py:45
+msgid "Used Space"
+msgstr "Benutzter Speicherplatz"
+
+#: ../src/openindiana-about.py:46
+msgid "Available Space"
+msgstr "Verfügbarer Speicherplatz"
+
+#: ../src/openindiana-about.py:47
+msgid "Memory"
+msgstr "Speicher"
+
+#: ../src/openindiana-about.py:54
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: ../src/openindiana-about.py:70 ../src/openindiana-about.py:89
+#, python-format
+msgid "%.1f MB"
+msgstr ""
+
+#: ../src/openindiana-about.py:72 ../src/openindiana-about.py:92
+#, python-format
+msgid "%.1f GB"
+msgstr ""
+
+#: ../src/openindiana-about.py:82
+#, python-format
+msgid "%u bytes"
+msgstr "%u Bytes"
+
+#: ../src/openindiana-about.py:86
+#, python-format
+msgid "%.1f KB"
+msgstr ""
+
+#: ../src/openindiana-about.py:97
+msgid "OpenIndiana Licenses"
+msgstr "OpenIndiana Lizenzen"
+
+#. Set the dialog default spacing for about
+#: ../src/openindiana-about.py:140
+msgid "Welcome to OpenIndiana"
+msgstr "Wilkommen zu OpenIndiana"
+
+#: ../src/openindiana-about.py:213
+msgid "_License"
+msgstr "_Lizenz"

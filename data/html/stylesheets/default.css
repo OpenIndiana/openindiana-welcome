@@ -1,0 +1,115 @@
+html {
+  color: #000000;
+  background-color: #f1f1f1;
+  font-family: "DejaVu Sans", "Bitstream Vera Sans", Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  margin: 1em;
+  padding: 1em;
+  font-size: 10pt;
+}
+
+img {
+  border-style: none;
+}
+
+table {
+  caption-side: bottom;
+}
+
+td, th {
+  vertical-align: text-top;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: .67em 0;
+}
+
+h2 {
+  font-size: 1.33em;
+  font-weight: bold;
+  margin: .83em 0;
+}
+
+h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 1.17em 0;
+}
+
+h5 {
+  font-size: .83em;
+  font-weight: bold;
+  margin: 1.33em 0;
+}
+
+h6 {
+  font-size: .67em;
+  font-weight: bold;
+  margin: 1.5em 0;
+}
+
+acronym[title],
+abbr[title] {
+  border-bottom: thin dotted;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #003366;
+}
+
+dt {
+  font-weight: bold;
+}
+
+:link, :visited {
+  text-decoration: none;
+}
+
+:link {
+  color: #000099;
+}
+
+:visited {
+  color: #6600cc;
+}
+
+:link:hover,
+:visited:hover {
+  text-decoration: underline;
+}
+
+:link:focus,
+:visited:focus {
+  text-decoration: underline;
+}
+
+:link:active,
+:visited:active {
+  text-decoration: underline;
+}
+
+div#content {
+  overflow: auto;
+  text-align: justify;
+  max-width: 50em;
+  margin-right: auto;
+  margin-left: auto;
+  line-height: 1.5em;
+}
+
