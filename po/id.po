@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openindiana-welcome 0.1\n"
 "Report-Msgid-Bugs-To: http://openindiana.org/\n"
-"POT-Creation-Date: 2010-09-03 14:06+0200\n"
+"POT-Creation-Date: 2010-09-15 19:15+0200\n"
 "PO-Revision-Date: 2010-09-03 14:14+0200\n"
 "Last-Translator: Guido Berhoerster <guido+openindiana@berhoerster.name>\n"
 "Language-Team: Indonesian\n"
@@ -48,39 +48,39 @@ msgstr "Tempat kosong"
 msgid "Memory"
 msgstr ""
 
-#: ../src/openindiana-about.py:54
+#: ../src/openindiana-about.py:53
 msgid "Unknown"
 msgstr "Tak diketahui"
 
-#: ../src/openindiana-about.py:70 ../src/openindiana-about.py:89
+#: ../src/openindiana-about.py:68 ../src/openindiana-about.py:87
 #, python-format
 msgid "%.1f MB"
 msgstr ""
 
-#: ../src/openindiana-about.py:72 ../src/openindiana-about.py:92
+#: ../src/openindiana-about.py:70 ../src/openindiana-about.py:90
 #, python-format
 msgid "%.1f GB"
 msgstr ""
 
-#: ../src/openindiana-about.py:82
+#: ../src/openindiana-about.py:80
 #, python-format
 msgid "%u bytes"
 msgstr ""
 
-#: ../src/openindiana-about.py:86
+#: ../src/openindiana-about.py:84
 #, python-format
 msgid "%.1f KB"
 msgstr ""
 
-#: ../src/openindiana-about.py:97
+#: ../src/openindiana-about.py:95
 msgid "OpenIndiana Licenses"
 msgstr "Lisensi-lisensi OpenIndiana"
 
 #. Set the dialog default spacing for about
-#: ../src/openindiana-about.py:140
+#: ../src/openindiana-about.py:138
 msgid "Welcome to OpenIndiana"
 msgstr "Selamat datang di OpenIndiana"
 
-#: ../src/openindiana-about.py:213
+#: ../src/openindiana-about.py:211
 msgid "_License"
 msgstr "_Lisensi"
