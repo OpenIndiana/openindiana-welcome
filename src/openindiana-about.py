@@ -92,7 +92,7 @@ class LicenseDialog( gtk.Dialog ):
 
     def __init__(self, parent, filename):
         flags = gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT
-        title = _('OpenSolaris Licenses')
+        title = _('OpenIndiana Licenses')
         buttons = (gtk.STOCK_OK, gtk.RESPONSE_OK)
         gtk.Dialog.__init__(self, title, parent, flags, buttons)
         self.connect('response', lambda w, id: self.destroy())
@@ -135,7 +135,7 @@ class DialogOpenSolaris(gtk.Dialog):
 		gtk.window_set_default_icon_from_file (PIXMAPSDIR + "/aboutOI.png")
 
 		# Set the dialog default spacing for about
-		self.set_title(_("Welcome to OpenSolaris"))
+		self.set_title(_("Welcome to OpenIndiana"))
 		self.set_border_width(5)
 		self.set_has_separator(False)
 		self.set_resizable(False)
@@ -230,7 +230,7 @@ class DialogOpenSolaris(gtk.Dialog):
 		# Can display using zenity or natively. Zenity ends up faster, but
 		# the window gets displayed behind the about dialog. Natively ends
 		# up being much slower.
-		# os.spawnv(os.P_NOWAIT, "/usr/bin/zenity", ["/usr/bin/zenity", "--text-info", "--width=700", "--height=700", "--title=OpenSolaris License", "--filename=/etc/notices/LICENSE"])
+		# os.spawnv(os.P_NOWAIT, "/usr/bin/zenity", ["/usr/bin/zenity", "--text-info", "--width=700", "--height=700", "--title=OpenIndiana License", "--filename=/etc/notices/LICENSE"])
 		dialog = LicenseDialog(self, "/etc/notices/LICENSE")
 		dialog.run()
 		return None
