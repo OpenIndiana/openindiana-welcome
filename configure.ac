@@ -2,7 +2,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.63])
 AC_INIT([openindiana-welcome],
-        [0.1],
+        [0.1.1],
         [https://bugs.launchpad.net/openindiana],
         [openindiana-welcome],
         [http://openindiana.org/])
