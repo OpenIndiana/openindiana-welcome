@@ -1,0 +1,33 @@
+# Italian translations for PACKAGE package.
+# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Guido Berhoerster <guido+openindiana@berhoerster.name>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://openindiana.org/\n"
+"POT-Creation-Date: 2010-09-04 13:58+0200\n"
+"PO-Revision-Date: 2010-09-04 13:59+0200\n"
+"Last-Translator: Guido Berhoerster <guido+openindiana@berhoerster.name>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/themes/OpenIndiana/GdmGreeterTheme.desktop.in.h:1
+msgid "2009 (c) Sun Microsystems Inc., 2010 (c) Nora Petrova"
+msgstr ""
+
+#: ../data/themes/OpenIndiana/GdmGreeterTheme.desktop.in.h:2
+msgid "OpenIndiana"
+msgstr ""
+
+#: ../data/themes/OpenIndiana/GdmGreeterTheme.desktop.in.h:3
+msgid "OpenIndiana Theme"
+msgstr "Tema OpenIndiana"
+
+#: ../data/themes/OpenIndiana/OpenIndiana.xml.in.h:2
+#, no-c-format
+msgid "Welcome to %h"
+msgstr "Benvenuti in %h"
