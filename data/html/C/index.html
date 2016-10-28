@@ -9,90 +9,125 @@
 <body>
 <div id="content">
 <h1><img src="../images/oi-logo.png" width=300 height=80
-alt="OpenIndidana Logo"></h1>
-<h2>Welcome to OpenIndiana – A Community Distribution of Oracle
-OpenSolaris</h2>
-<p>OpenIndiana is a distribution of OpenSolaris, constructed by the
-community, for the community. Our primary goal is to be a binary
-and package compatible drop-in replacement for the official Oracle
-OpenSolaris distribution.</p>
-<p>This project was created to address the longstanding issue that
-the OpenSolaris distribution is constructed entirely by Sun/Oracle,
-not by the community. Depending on a single commercial entity has
-led to several issues, notably that bug fixes and security updates
-are only available via a paid for support subscription, that
-community participation has been limited in steering the direction
-of the operating system, and that commercial decisions within
-Sun/Oracle have led to delays with the latest release.</p>
-<p>We believe that this distribution is a necessary next step in
-the evolution of the OpenSolaris legacy, one that the wider
-community has been desperately waiting for. By engaging the
-community, we can deliver true transparency, deliver regular
-security updates and bug fixes, and bring peace of mind to our
-users by providing a certain future for the operating system.</p>
-<h2>Independence and Cooperation</h2>
-<p>OpenIndiana is about gaining independence and security, whilst
-cooperating and sharing our efforts with Oracle to benefit the
-greater OpenSolaris community. We intend to foster a friendly, open
-and active environment for developers to join us and get involved,
-to develop the operating system in new directions and take it to
-levels that were simply not possible under Sun/Oracle's
-stewardship.</p>
-<p>Together with the Illumos project we will work hard in order to
-replace the remaining closed source binaries with open-sourced
-equivalents, making the OpenIndiana distribution a true open source
-operating system. We hope that this will speed adoption and
-acceptance within the open source community.</p>
-<p>We are committed to make developing the OpenSolaris operating system
-easier than ever, by fully documenting the build process and
-enhancing it to the point that anyone can quickly and easily get
-involved and compile the operating system from scratch.</p>
-<p>Lastly, we intend to enhance the OpenSolaris operating system's
-ease of use, such that Linux users can make the transition with as
-little pain as possible. Key examples of how we intend to do this
-include making far more free and open source software available for
-our distribution, as well as keeping this software up to date. We
-also believe OpenSolaris excels as a server platform, with
-enterprise features found in no other operating system, such as the
-ZFS filesystem, Zones, the Service Management Framework, the Fault
-Management system, the COMSTAR iSCSI/FCoE framework, and the
-Crossbow virtualised network stack. We intend to make it easier
-than ever to install OpenSolaris on servers, by providing
-additional installation options on the live CD, and enhancing the
-Automated Installer for automated network installs.</p>
+alt="OpenIndiana Logo"></h1>
+
+<h2>Welcome to OpenIndiana Hipster!</h2>
+
+<p>OpenIndiana is an illumos based Unix-like distribution derived from OpenSolaris.
+Constructed as a general purpose operating system with enterprise class features, OpenIndiana Hipster is developed by the community, and for the community.</p>
+
+<p>OpenIndiana obtains its name from Project Indiana, an open source effort by Sun Microsystems (now Oracle Corporation) to produce OpenSolaris, a community developed Unix-like distribution based on Sun Solaris.
+Project Indiana was led by Ian Murdock, founder of the Debian Linux Distribution.</p>
+
+<p>Some of the differences between OpenIndiana and OpenSolaris can be characterized as follows:</p>
+
+<ul>
+  <li>Sun's OS/NET consolidation (closed by Oracle) has been replaced with illumos-gate.</li><br>
+  <li>Many of the original OpenSolaris software consolidations have been reorganized into a single oi-userland consolidation.</li><br>
+  <li>Oracle's Sun Studio has been replaced with the open source GNU GCC compiler.</li><br>
+  <li>XVM (XEN) has been replaced with the illumos-kvm port.</li><br>
+</ul>
+
+<h2>OpenIndiana Hipster Enterprise Class Features</h2>
+
+<table>
+  <tr>
+    <th>Feature</a></th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/ZFS">ZFS</a></td>
+    <td>File System and Volume Manager</td>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/DTrace">Dtrace</a></td>
+    <td>Dynamic Tracing Framework (System Introspection)</td>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/OpenSolaris_Network_Virtualization_and_Resource_Control">Crossbow</a></td>
+    <td>Network Virtualization and Resource Control</td>
+  </tr>
+  <tr>
+    <td><a href="http://illumos.org/man/5/smf">SMF</a></td>
+    <td>Service Management Facility</td>
+  </tr>
+  <tr>
+    <td><a href="http://illumos.org/man/1M/fmd">FMA</a></td>
+    <td>Fault Management Architecture</td>
+  </tr>
+  <tr>
+    <td><a href="http://illumos.org/man/1m/itadm">COMSTAR</a></td>
+    <td>Common Multiprotocol SCSI Target (ISCSI Target Framework)</td>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine">KVM</a></td>
+    <td>Kernel-Based Virtual Machine (Operating System Virtualization)</td>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/Solaris_Containers">Zones</a></td>
+    <td>OS Level Virtualized Application Containers</td>
+  </tr>
+  <tr>
+    <td><a href="http://www.serverwatch.com/tutorials/article.php/3831881/Say-Cheese-OpenSolaris-Time-Slider.htm">Time-Slider</a></td>
+    <td>Automated ZFS Snapshots and Rollbacks</td>
+  </tr>
+  <tr>
+    <td><a href="http://www.c0t0d0s0.org/archives/4073-Less-known-Solaris-features-RBAC-and-Privileges-Part-1-Introduction.html">RBAC</a></td>
+    <td>Role-Based Access Control</td>
+  </tr>
+  <tr>
+    <td><a href="http://www.c0t0d0s0.org/archives/6292-Less-known-Solaris-features-IP-Multipathing-Part-1-Introduction.html">IPMP</a></td>
+    <td>IP Network Multipathing</td>
+  </tr>
+  <tr>
+    <td><a href="http://www.c0t0d0s0.org/archives/7553-Less-known-Solaris-Features-Data-Link-Multipathing.html">DLMP</a></td>
+    <td>Data Link Multipathing</td>
+  </tr>
+</table>
+
+<br>
+
+<h2>Release Notes</h2>
+
+<a href="https://wiki.openindiana.org/oi/Release+Notes">https://wiki.openindiana.org/oi/Release+Notes</a>
+
+<br>
+<br>
+
 <h2>About Us</h2>
-OpenIndiana is part of the Illumos Foundation, built by volunteers and
-enthusiasts from around the world. Currently build servers, hosting
-and bandwidth is donated by EveryCity hosting in the UK.
+
+<p>The OpenIndiana Project is a community of volunteers and UNIX enthusiasts from around the world.
+Currently build servers, hosting and bandwidth is donated by EveryCity hosting in the UK.</p>
+
+<br>
+
 <h2>Getting Involved</h2>
-<p>Our success as a distribution depends upon the success of our
-community, which is why we would like to invite all those
-interested in the future of OpenSolaris to participate and get
-involved!</p>
-<p>We have many resources from which you can get started, including
-our Wiki, Mailing Lists and IRC Channel. We have development
-servers available which can be booked, publicly available IPS
-development repositories for updating to the latest builds, and
-mercurial repositories for checking out the latest source code.</p>
-<p>Further, we have a list of vacancies on our website which we are
-actively seeking to fill, see our website for the details.</p>
+
+<p>Our success as a distribution depends upon the success of our community, which is why we would like to invite all those interested in the future of OpenIndiana to participate and get involved!</p>
+
+<p>We have many resources from which you can get started, including our Wiki, Mailing Lists and IRC Channel.</p>
+ 
+<ul>
+  <li>For developers we have Vagrant development images which can be easily deployed.</li><br> 
+  <li>For end users we have publicly available IPS repositories for updating your installation with the latest software and security fixes.</li>
+</ul>
+
+<br>
+
 <h2>Links</h2>
-<dl>
-<dt>Website:</dt>
-<dd><a href="http://openindiana.org/" title=
-"OpenIndiana Website">http://openindiana.org/</a></dd>
-<dt>Wiki:</dt>
-<dd><a href="http://wiki.openindiana.org/" title=
-"OpenIndiana Wiki">http://wiki.openindiana.org</a></dd>
-<dt>Mailing Lists:</dt>
-<dd><a href="http://openindiana.org/mailman/" title=
-"OpenIndiana Mailing Lists">http://openindiana.org/mailman/</a></dd>
-<dt>IRC Channel:</dt>
-<dd>#openindiana on irc.freenode.net</dd>
-</dl>
+
+<ul>
+  <li>Website: <a href="https://openindiana.org">https://openindiana.org</a></li><br>
+  <li>Wiki: <a href="https://wiki.openindiana.org">https://wiki.openindiana.org</a></li><br>
+  <li>Mailing Lists: <a href="http://openindiana.org/mailman">http://openindiana.org/mailman</a></li><br>
+  <li>IRC Channel: #openindiana on irc.freenode.net</li>
+</ul>
+
+<br>
+
 <h2>License</h2>
-<a href="file:///etc/notices/LICENSE" title="OpenIndiana Licensing
-Information">OpenIndiana Licensing Information</a>
+
+<a href="file:///etc/notices/LICENSE" title="OpenIndiana Licensing Information">OpenIndiana Licensing Information</a>
 </div>
 </body>
 </html>
