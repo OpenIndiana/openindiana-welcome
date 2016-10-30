@@ -6,5 +6,7 @@ nobase_dist_html_DATA = \
 	images/oi-logo.png \
 	index.html \
 	C/index.html \
-	en/index.html
-
+	el/index.html \
+	en/index.html \
+	fr/index.html \
+	ru/index.html
