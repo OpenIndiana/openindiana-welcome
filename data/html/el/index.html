@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+<title>Καλώς ήρθατε στο OpenIndiana</title>
+</head>
+<body>
+<div id="content">
+<h1><img src="../images/oi-logo.png" width=300 height=80
+alt="OpenIndiana Logo"></h1>
+
+<h2>Καλώς ήρθατε στο OpenIndiana Hipster!</h2>
+
+<p>Το OpenIndiana είναι μια διανομή του illumos, ενός συστήματος που μοιάζει με το Unix και
+αποτελεί συνέχεια του OpenSolaris. Το OpenIndiana Hipster σχεδιάσθηκε να είναι ένα σύστημα 
+γενικής χρήσης με καινοτόμα χαρακτηριστικά ενώ η ανάπτυξη του έγινε από μία κοινότητα 
+προγραμματιστών και χρηστών για την ευρύτερη κοινότητα χρηστών.</p>
+
+<p>Το όνομα OpenIndiana προέρχεται από το Project Indiana, μια προσπάθεια ανοικτού κώδικα 
+της Sun Microsystems (η οποία στην συνέχεια εξαγοράσθηκε από την Oracle Corporation) 
+με σκοπό τη δημιουργία του OpenSolaris, ενός συστήματος που μοιάζει με το Unix, βασίστηκε στο 
+Sun Solaris και αναπτύχθηκε από την κοινότητα. Το Project Indiana ηγούταν ο Ian Murdock, 
+δημιουργός της διανομής Debian του Linux.</p>
+
+<p>Μερικές από τις διαφορές μεταξύ του OpenIndiana και του OpenSolaris είναι οι εξής:</p>
+
+<ul>
+  <li>Η βάση του λειτουργικού OS/NET της Sun (την οποία έκλεισε η Oracle) αντικαταστάθηκε από
+      το illumos-gate.</li><br>
+  <li>Πολλές από τις αρχικές βάσεις λογισμικού του OpenSolaris αναδιοργανώθηκαν στη βάση
+      λογισμικού  oi-userland.</li><br>
+  <li>Το Sun Studio της Oracle αντικαταστάθηκε από τον μεταφραστή ανοικτού κώδικα GNU GCC.</li><br>
+  <li>Το XVM (XEN) αντικαταστάθηκε από πόρτ του kvm στο illumos.</li><br>
+</ul>
+
+<h2>Καινοτόμα χαρακτηριστικά του OpenIndiana Hipster</h2>
+
+<table>
+  <tr>
+    <th>Χαρακτηριστικό</a></th>
+    <th>Περιγραφή</th>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/ZFS">ZFS</a></td>
+    <td>Σύστημα αρχείων και διαχείριση τόμων</td>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/DTrace">Dtrace</a></td>
+    <td>Δυναμικό σύστημα ανίχνευσης λαθών</td>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/OpenSolaris_Network_Virtualization_and_Resource_Control">Crossbow</a></td>
+    <td>Σύστημα εικονικοποίησης δικτύου και ελέγχου πόρων</td>
+  </tr>
+  <tr>
+    <td><a href="http://illumos.org/man/5/smf">SMF</a></td>
+    <td>Σύστημα δειχείρισης υπηρεσιών</td>
+  </tr>
+  <tr>
+    <td><a href="http://illumos.org/man/1M/fmd">FMA</a></td>
+    <td>Αρχιτεκτονική διαχείρισης σφαλμάτων</td>
+  </tr>
+  <tr>
+    <td><a href="http://illumos.org/man/1m/itadm">COMSTAR</a></td>
+    <td>COmmon Multiprotocol Scsi TARget (Τεχνολογία iSCSI)</td>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine">KVM</a></td>
+    <td>Kernel-based Virtual Machine (Εικονοποίηση σε επίπεδο λειτουργικού συστήματος)</td>
+  </tr>
+  <tr>
+    <td><a href="https://en.wikipedia.org/wiki/Solaris_Containers">Zones</a></td>
+    <td>Περιέκτης εικονικών εφαρμογών σε επίπεδο λειτουργικού συστήματος</td>
+  </tr>
+  <tr>
+    <td><a href="http://www.serverwatch.com/tutorials/article.php/3831881/Say-Cheese-OpenSolaris-Time-Slider.htm">Time-Slider</a></td>
+    <td>Αυτοματοποιημένη αποθήκευση στιγμιοτύπων ZFS <br/>και επιστροφής σε προηγούμενη 
+        κατάστση του ZFS</td>
+  </tr>
+  <tr>
+    <td><a href="http://www.c0t0d0s0.org/archives/4073-Less-known-Solaris-features-RBAC-and-Privileges-Part-1-Introduction.html">RBAC</a></td>
+    <td>Role-Based Access Control (δυνατότητα ανάθεσης ρόλων σε χρήστες)</td>
+  </tr>
+  <tr>
+    <td><a href="http://www.c0t0d0s0.org/archives/6292-Less-known-Solaris-features-IP-Multipathing-Part-1-Introduction.html">IPMP</a></td>
+    <td>IP Network Multipathing (εξισορρόπηση δικτυακού φόρτου και τεχνολογία λογισμικού
+        ανακατεύθυνσης διαδρομών δικτύου)</td>
+  </tr>
+  <tr>
+    <td><a href="http://www.c0t0d0s0.org/archives/7553-Less-known-Solaris-Features-Data-Link-Multipathing.html">DLMP</a></td>
+    <td>Data Link Multipathing (τεχνολογία διασύνδεσης δικτύου-συνάθροιση)</td>
+  </tr>
+</table>
+
+<br>
+
+<h2>Ανακοινώσεις εκδόσεων</h2>
+Snapshot ελληνικά
+<a href="https://wiki.openindiana.org/oi/Release+Notes">https://wiki.openindiana.org/oi/Release+Notes</a>
+
+<br>
+<br>
+
+<h2>Πληροφορίες για εμάς</h2>
+
+<p>Το πρότζεκτ του OpenIndiana αποτελείται από μία κοινότητα εθελοντών και λάτρεις
+του Unix από όλες τις γωνιές του κόσμου. Αυτή τη στιγμή η Βρετανική εταιρεία EveryCity,
+που παρέχει υπηρεσίες φιλοξενίας σελίδων, παρέχει εξοπλισμό για τη δημιουργία του
+λειτουργικού καθώς και χώρο φιλοξενίας για τις διάφορες εκδόσεις του.</p>
+
+<br>
+
+<h2>Πως να συμμετέχεται</h2>
+
+<p>Η επιτυχία της διανομής μας εξαρτάται από την επιτυχία της κοινότητας μας. Αυτός 
+είναι και ο λόγος για τον οποίο θέλουμε να προσκαλέσουμε όλους όσους ενδιαφέρονται
+για το μέλλον του  OpenIndiana να συμμετέχουν και να βοηθήσουν όπως μπορούν!</p>
+
+<p>Έχουμε πολλά μέσα από τα οποία μπορεί να ξεκινήσει κάποιος όπως το Wiki μας, οι λίστες
+ηλ. ταχ. και κανάλι IRC.</p>
+ 
+<ul>
+  <li>Για αυτούς που συμμετέχουν στην ανάπτυξη του συστήματος έχουμε εικόνες Vagrant οι οποίες
+      μπορούν να αξιοποιηθούν εύκολα.</li><br> 
+  <li>Για τους τελικούς χρήστες υπάρχουν «αποθήκες» IPS για την ενημέρωση της εγκατάστασης σας
+      με τελευταίες εκδόσεις λογισμικού καθώς και επιδιωρθώσεις σφαλμάτων ασφαλείας.</li>
+</ul>
+
+<br>
+
+<h2>Σύνδεσμοι</h2>
+
+<ul>
+  <li>Ιστοσελίδα: <a href="https://openindiana.org">https://openindiana.org</a></li><br>
+  <li>Wiki: <a href="https://wiki.openindiana.org">https://wiki.openindiana.org</a></li><br>
+  <li>Λίστες ηλ. ταχ.: <a href="http://openindiana.org/mailman">http://openindiana.org/mailman</a></li><br>
+  <li>Κανάλι IRC: #openindiana στο irc.freenode.net</li>
+</ul>
+
+<br>
+
+<h2>Άδεια</h2>
+
+<a href="file:///etc/notices/LICENSE" title="OpenIndiana Licensing Information">Πληροφορίες για την άδεια του OpenIndiana</a>
+</div>
+</body>
+</html>
