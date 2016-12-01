@@ -10,4 +10,5 @@ nobase_dist_html_DATA = \
 	en/index.html \
 	fr/index.html \
 	ru/index.html \
-	de/index.html
+	de/index.html \
+	pl/index.html
