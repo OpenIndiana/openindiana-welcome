@@ -1,7 +1,6 @@
 ### Process this file with automake to produce Makefile.in
 
 EXTRA_DIST = \
-	m4/am_check_pygtk.m4 \
 	autogen.sh \
 	ChangeLog \
 	intltool-extract.in \
