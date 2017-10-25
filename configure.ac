@@ -15,7 +15,7 @@ AC_PROG_SED
 IT_PROG_INTLTOOL([0.40.0])
 
 AM_PATH_PYTHON([2.4])
-AM_CHECK_PYGTK([2.0],,[AC_MSG_ERROR([openindiana-welcome requires pygtk-2.0])])
+PKG_CHECK_MODULES([pygobject], [pygobject-3.0 >= 3.18])
 
 GETTEXT_PACKAGE=openindiana-welcome
 AC_SUBST(GETTEXT_PACKAGE)

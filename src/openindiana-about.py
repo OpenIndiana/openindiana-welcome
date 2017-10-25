@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Copyright (C) 2010 Oracle Corporation and/or its affiliates.
+# Copyright (c) 2010, 2017, Oracle and/or its affiliates. All rights reserved.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,11 +25,13 @@
 import locale
 import gettext
 from gettext import gettext as _
-import gtk, gtk.gdk
-import gnome
 import os, sys
 import string
 import re
+
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import GObject, Gtk, Gdk
 
 def N_(message): return message
 
@@ -88,83 +90,80 @@ def format_size_for_display(size):
 		else:
 			displayed_size = size / GIGABYTE_FACTOR
 			return _("%.1f GB") % displayed_size
-class LicenseDialog( gtk.Dialog ):
+class LicenseDialog( Gtk.Dialog ):
 
     def __init__(self, parent, filename):
-        flags = gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT
-        title = _('OpenIndiana Licenses')
-        buttons = (gtk.STOCK_OK, gtk.RESPONSE_OK)
-        gtk.Dialog.__init__(self, title, parent, flags, buttons)
-        self.connect('response', lambda w, id: self.destroy())
+	flags = Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT
+	title = _('OpenIndiana Licenses')
+	buttons = (Gtk.STOCK_OK, Gtk.ResponseType.OK)
+	Gtk.Dialog.__init__(self, title, parent, flags, buttons)
+	self.connect('response', lambda w, id: self.destroy())
+	
+	self.set_modal(True)
+	self.set_decorated(True)
+	self.set_border_width(6)
+	self.set_default_size(700,700)
+	self.set_resizable(True)
+	self.vbox.set_spacing(12)
+	#self.action_area.set_layout(gtk.BUTTONBOX_EDGE)
+	
+	self.scrolledwin = Gtk.ScrolledWindow()
+	self.scrolledwin.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
+	self.scrolledwin.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
+	self.vbox.pack_start(self.scrolledwin, True, True, 0)
 
-        self.set_modal(True)
-        self.set_decorated(True)
-        self.set_has_separator(False)
-        self.set_border_width(6)
-        self.set_default_size(700,700)
-        self.set_resizable(True)
-        self.vbox.set_spacing(12)
-        #self.action_area.set_layout(gtk.BUTTONBOX_EDGE)
-
-        self.scrolledwin = gtk.ScrolledWindow()
-        self.scrolledwin.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        self.scrolledwin.set_shadow_type(gtk.SHADOW_ETCHED_IN)
-        self.vbox.pack_start(self.scrolledwin)
-
-        self.textbuffer = gtk.TextBuffer()
-        self.textview = gtk.TextView(self.textbuffer)
-        self.textview.set_cursor_visible(False)
-        self.textview.set_editable(False)
-
+	self.textview = Gtk.TextView()
+	self.textbuffer = self.textview.get_buffer()
+	self.textview.set_cursor_visible(False)
+	self.textview.set_editable(False)
+	
 	fd = open (filename, "r")
-
+	
 	self.iter = self.textbuffer.get_iter_at_offset(0);
-
+	
 	for string in fd.readlines():
-        	self.textbuffer.insert(self.iter, string)
+		self.textbuffer.insert(self.iter, string)
+	
+	self.scrolledwin.add(self.textview)
+	self.show_all()
 
-        self.scrolledwin.add(self.textview)
-        self.show_all()
-
-class DialogOpenSolaris(gtk.Dialog):
+class DialogOS(Gtk.Dialog):
 	def __init__(self, parent=None):
-        	gtk.Dialog.__init__(self, self.__class__.__name__, parent, 0, None)
+        	Gtk.Dialog.__init__(self, self.__class__.__name__, parent, 0, None)
+		self.connect('destroy', lambda *w: Gtk.main_quit())
+		self.set_name('os_dialog')
 
-		self.connect('destroy', lambda *w: gtk.main_quit())
-
-		gtk.window_set_default_icon_from_file (PIXMAPSDIR + "/aboutOI.png")
+		Gtk.Window.set_default_icon_from_file (PIXMAPSDIR + "/aboutOI.png")
 
 		# Set the dialog default spacing for about
 		self.set_title(_("Welcome to OpenIndiana"))
 		self.set_border_width(5)
-		self.set_has_separator(False)
 		self.set_resizable(False)
 		self.vbox.set_border_width(2)
 		self.action_area.set_border_width(5)
 
-		vbox = gtk.VBox(False, 8)
+		vbox = Gtk.VBox(False, 8)
 		vbox.set_border_width(5)
 		self.vbox.pack_start(vbox, False, False, 0)
 
 		self.dialog = None
 
 		# Logo
-		logo = gtk.Image()
+		logo = Gtk.Image()
 		logo.set_from_file (PIXMAPSDIR + "/oiLogo.png")
 		vbox.pack_start(logo, False, False, 0)
 
 		# Copyright
-		copyright_label = gtk.Label()
+		copyright_label = Gtk.Label()
 		copyright_label.set_markup("<span size=\"small\">%s</span>" % _(copyright_string))
-		copyright_label.set_justify(gtk.JUSTIFY_CENTER)
-		copyright_label.set_line_wrap(True)
-		hbox = gtk.HBox(True, 0)
+		copyright_label.set_justify(Gtk.Justification.CENTER)
+		hbox = Gtk.HBox(True, 0)
 		hbox.pack_start(copyright_label, False, False, 12)
 		vbox.pack_start(hbox, False, False, 0)
 
 		# System Information
 
-		size_vbox = gtk.VBox(False, 0)
+		size_vbox = Gtk.VBox(False, 0)
 		vbox.pack_end(size_vbox, False, False, 0)
 
 		vfs = os.statvfs("/")
@@ -172,54 +171,57 @@ class DialogOpenSolaris(gtk.Dialog):
 		avail = vfs.f_bfree * vfs.f_frsize
 		used = size - avail
 
+		# Add some vertical space with an empty hbox
+		hbox = Gtk.HBox(False, 0)
+		size_vbox.pack_start(hbox, False, False, 10)
+
 		# Version
-		release_label = gtk.Label()
+		release_label = Gtk.Label()
 		release_label.set_alignment(0, 0)
 		release_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(release_text), VERSION))
-		release_label.set_justify(gtk.JUSTIFY_LEFT)
-		hbox = gtk.HBox(False, 0)
+		release_label.set_justify(Gtk.Justification.LEFT)
+		hbox = Gtk.HBox(False, 0)
 		hbox.pack_start(release_label, False, False, 12)
 		size_vbox.pack_start(hbox, False, False, 0)
 
 		# Used Space
-		used_label = gtk.Label()
+		used_label = Gtk.Label()
 		used_label.set_alignment(0, 0)
 		used_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(space_text), format_size_for_display(used)))
-		used_label.set_justify(gtk.JUSTIFY_LEFT)
-		hbox = gtk.HBox(False, 0)
+		used_label.set_justify(Gtk.Justification.LEFT)
+		hbox = Gtk.HBox(False, 0)
 		hbox.pack_start(used_label, False, False, 12)
 		size_vbox.pack_start(hbox, False, False, 0)
 
 		# Available Space
-		avail_label = gtk.Label()
+		avail_label = Gtk.Label()
 		avail_label.set_alignment(0, 0)
 		avail_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(available_text), format_size_for_display(avail)))
-		avail_label.set_justify(gtk.JUSTIFY_LEFT)
-		hbox = gtk.HBox(False, 0)
+		avail_label.set_justify(Gtk.Justification.LEFT)
+		hbox = Gtk.HBox(False, 0)
 		hbox.pack_start(avail_label, False, False, 12)
 		size_vbox.pack_start(hbox, False, False, 0)
 
 		# Memory Information
-		memory_label = gtk.Label()
+		memory_label = Gtk.Label()
 		memory_label.set_alignment(0, 0)
 		memory_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(memory_text), get_machine_memory()))
-		memory_label.set_justify(gtk.JUSTIFY_LEFT)
-		hbox = gtk.HBox(False, 0)
+		memory_label.set_justify(Gtk.Justification.LEFT)
+		hbox = Gtk.HBox(False, 0)
 		hbox.pack_start(memory_label, False, False, 12)
 		size_vbox.pack_start(hbox, False, False, 0)
 
-		devices_button = gtk.Button(_("_License"), None, gtk.RESPONSE_NONE)
+		devices_button = Gtk.Button(_("_License"), None, Gtk.ResponseType.NONE)
 		devices_button.connect('clicked', self.on_license_button_clicked)
 		self.action_area.pack_end (devices_button, False, True, 0)
-		#self.action_area.set_child_secondary(devices_button,True)
 
-		close_button=self.add_button(gtk.STOCK_CLOSE,gtk.RESPONSE_CANCEL)
-		self.set_default_response (gtk.RESPONSE_CANCEL)
+		close_button=self.add_button(Gtk.STOCK_CLOSE,Gtk.ResponseType.CANCEL)
+		self.set_default_response (Gtk.ResponseType.CANCEL)
 		close_button.grab_default()
 		close_button.grab_focus()
-		close_button.connect('clicked', lambda *w: gtk.main_quit())
+		close_button.connect('clicked', lambda *w: Gtk.main_quit())
 
-		help_button = gtk.Button(stock=gtk.STOCK_HELP)
+		help_button = Gtk.Button(stock=Gtk.STOCK_HELP)
 		help_button.connect('clicked', self.on_getting_started_button_clicked)
 		self.action_area.pack_end(help_button, False, True, 0)
 		self.action_area.set_child_secondary(help_button,True)
@@ -245,8 +247,8 @@ def main():
 	gettext.textdomain (PACKAGE)
 	gettext.install (PACKAGE, LOCALEDIR)
 
-	DialogOpenSolaris()
-	gtk.main()
+	dialog = DialogOS()
+	Gtk.main()
 
 if __name__ == '__main__':
 	main()
