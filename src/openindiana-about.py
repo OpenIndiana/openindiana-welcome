@@ -18,9 +18,12 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
+
 #
 # customizations for the OpenIndiana project added by Guido Berhoerster
 # <guido+openindiana@berhoerster.name>, 2010-09-03
+# Copyright (c) 2018, Michal Nowak
+#
 
 import locale
 import gettext
@@ -36,10 +39,8 @@ from gi.repository import GObject, Gtk, Gdk
 def N_(message): return message
 
 PACKAGE   = "openindiana-welcome"
-VERSION   = "Development Version"
 LOCALEDIR = "%%DATADIR%%/locale"
 PIXMAPSDIR = "%%DATADIR%%/pixmaps"
-release_string = "OpenIndiana"
 
 copyright_string = N_("Copyright 2010 The OpenIndiana Project.\nCopyright 2010 Oracle Corporation and/or its affiliates.\nAll Rights Reserved. Use is subject to license terms.")
 
@@ -47,6 +48,7 @@ release_text = N_("Release")
 space_text = N_("Used Space")
 available_text = N_("Available Space")
 memory_text = N_("Memory")
+machine_text = N_("System")
 
 def get_machine_info():
 	# This is gross, assumes the file output is regular
@@ -72,6 +74,15 @@ def get_machine_memory():
 		return _("%.1f GB") % string.atoi(value)
 	else:
 		return value + " " + unit;
+
+def get_release_string():
+	try:
+		file_buffer = open("/etc/release", "r").readlines()
+		if len(file_buffer) > 0:
+			return file_buffer[0].strip()
+	except IOError:
+		pass
+	return _("Unknown")
 
 def format_size_for_display(size):
 	KILOBYTE_FACTOR = 1024.0
@@ -105,7 +116,6 @@ class LicenseDialog( Gtk.Dialog ):
 	self.set_default_size(700,700)
 	self.set_resizable(True)
 	self.vbox.set_spacing(12)
-	#self.action_area.set_layout(gtk.BUTTONBOX_EDGE)
 	
 	self.scrolledwin = Gtk.ScrolledWindow()
 	self.scrolledwin.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
@@ -117,7 +127,7 @@ class LicenseDialog( Gtk.Dialog ):
 	self.textview.set_cursor_visible(False)
 	self.textview.set_editable(False)
 	
-	fd = open (filename, "r")
+	fd = open(filename, "r")
 	
 	self.iter = self.textbuffer.get_iter_at_offset(0);
 	
@@ -178,10 +188,28 @@ class DialogOS(Gtk.Dialog):
 		# Version
 		release_label = Gtk.Label()
 		release_label.set_alignment(0, 0)
-		release_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(release_text), VERSION))
+		release_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(release_text), get_release_string()))
 		release_label.set_justify(Gtk.Justification.LEFT)
 		hbox = Gtk.HBox(False, 0)
 		hbox.pack_start(release_label, False, False, 12)
+		size_vbox.pack_start(hbox, False, False, 0)
+
+		# System Configuration Information
+		machine_label = Gtk.Label()
+		machine_label.set_alignment(0, 0)
+		machine_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(machine_text), get_machine_info()))
+		machine_label.set_justify(Gtk.Justification.LEFT)
+		hbox = Gtk.HBox(False, 0)
+		hbox.pack_start(machine_label, False, False, 12)
+		size_vbox.pack_start(hbox, False, False, 0)
+
+		# Memory Information
+		memory_label = Gtk.Label()
+		memory_label.set_alignment(0, 0)
+		memory_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(memory_text), get_machine_memory()))
+		memory_label.set_justify(Gtk.Justification.LEFT)
+		hbox = Gtk.HBox(False, 0)
+		hbox.pack_start(memory_label, False, False, 12)
 		size_vbox.pack_start(hbox, False, False, 0)
 
 		# Used Space
@@ -200,15 +228,6 @@ class DialogOS(Gtk.Dialog):
 		avail_label.set_justify(Gtk.Justification.LEFT)
 		hbox = Gtk.HBox(False, 0)
 		hbox.pack_start(avail_label, False, False, 12)
-		size_vbox.pack_start(hbox, False, False, 0)
-
-		# Memory Information
-		memory_label = Gtk.Label()
-		memory_label.set_alignment(0, 0)
-		memory_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(memory_text), get_machine_memory()))
-		memory_label.set_justify(Gtk.Justification.LEFT)
-		hbox = Gtk.HBox(False, 0)
-		hbox.pack_start(memory_label, False, False, 12)
 		size_vbox.pack_start(hbox, False, False, 0)
 
 		devices_button = Gtk.Button(_("_License"), None, Gtk.ResponseType.NONE)
