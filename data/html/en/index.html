@@ -6,46 +6,48 @@
 <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
 <title>Welcome to OpenIndiana</title>
 </head>
+
 <body>
+
 <div id="content">
-<h1><img src="../images/oi-logo.png" width=300 height=80
-alt="OpenIndiana Logo"></h1>
+
+<h1><img src="../images/oi-logo.png" width=300 height=80 alt="OpenIndiana Logo"></h1>
 
 <h2>Welcome to OpenIndiana Hipster!</h2>
 
-<p>OpenIndiana is an illumos based Unix-like distribution derived from OpenSolaris.
-Constructed as a general purpose operating system with enterprise class features, OpenIndiana Hipster is developed by the community, and for the community.</p>
+<p>OpenIndiana is an illumos based Unix distribution derived from OpenSolaris.
+Engineered as a general-purpose operating system with enterprise-class features,
+OpenIndiana Hipster is developed by the community, and for the community.</p>
 
-<p>OpenIndiana obtains its name from Project Indiana, an open source effort by Sun Microsystems (now Oracle Corporation) to produce OpenSolaris, a community developed Unix-like distribution based on Sun Solaris.
-Project Indiana was led by Ian Murdock, founder of the Debian Linux Distribution.</p>
+<p>OpenIndiana obtains its name from Project Indiana, an open source effort
+by Sun Microsystems (now Oracle Corporation) to produce OpenSolaris, a community
+developed Unix distribution based on Sun Solaris. Project Indiana was led by
+Ian Murdock, founder of the Debian Linux distribution.</p>
 
 <p>Some of the differences between OpenIndiana and OpenSolaris can be characterized as follows:</p>
-
 <ul>
-  <li>Sun's OS/NET consolidation (closed by Oracle) has been replaced with illumos-gate.</li><br>
-  <li>Many of the original OpenSolaris software consolidations have been reorganized into a single oi-userland consolidation.</li><br>
-  <li>Oracle's Sun Studio has been replaced with the open source GNU GCC compiler.</li><br>
-  <li>XVM (XEN) has been replaced with the illumos-kvm port.</li><br>
+  <li>Sun's OS/NET consolidation (closed by Oracle) has been replaced with
+    <a href="https://github.com/illumos/illumos-gate">illumos-gate</a>.</li><br>
+  <li>Many of the original OpenSolaris software consolidations have been reorganized
+    into a single <a href="https://github.com/OpenIndiana/oi-userland">oi-userland consolidation</a>.</li><br>
+  <li>Oracle's Sun Studio has been replaced with the open source <a href="https://github.com/illumos/gcc">GNU GCC compiler</a>.</li><br>
+  <li>XVM (Xen) has been replaced with the <a href="https://github.com/joyent/illumos-kvm">illumos KVM port</a>.</li><br>
 </ul>
 
-<h2>OpenIndiana Hipster Enterprise Class Features</h2>
+<h2>Enterprise-Class Features</h2>
 
 <table>
   <tr>
-    <th>Feature</a></th>
-    <th>Description</th>
-  </tr>
-  <tr>
     <td><a href="https://en.wikipedia.org/wiki/ZFS">ZFS</a></td>
-    <td>File System and Volume Manager</td>
+    <td>Copy-on-write file system and logical volume manager with extensive data corruption protection, high storage capacities support, efficient data compression, snapshots, and more</td>
   </tr>
   <tr>
-    <td><a href="https://en.wikipedia.org/wiki/DTrace">Dtrace</a></td>
-    <td>Dynamic Tracing Framework (System Introspection)</td>
+    <td><a href="https://en.wikipedia.org/wiki/DTrace">DTrace</a></td>
+    <td>Real-time dynamic tracing framework with user- and kernel-space introspection</td>
   </tr>
   <tr>
     <td><a href="https://en.wikipedia.org/wiki/OpenSolaris_Network_Virtualization_and_Resource_Control">Crossbow</a></td>
-    <td>Network Virtualization and Resource Control</td>
+    <td>Network virtualization and resource control</td>
   </tr>
   <tr>
     <td><a href="http://illumos.org/man/5/smf">SMF</a></td>
@@ -57,18 +59,18 @@ Project Indiana was led by Ian Murdock, founder of the Debian Linux Distribution
   </tr>
   <tr>
     <td><a href="http://illumos.org/man/1m/itadm">COMSTAR</a></td>
-    <td>Common Multiprotocol SCSI Target (ISCSI Target Framework)</td>
+    <td>iSCSI target management framework</td>
   </tr>
   <tr>
-    <td><a href="https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine">KVM</a></td>
-    <td>Kernel-Based Virtual Machine (Operating System Virtualization)</td>
+    <td><a href="https://github.com/OpenIndiana/pkg5/blob/oi/doc/kvm.md">KVM</a></td>
+    <td>Hardware-assisted virtualization infrastructure ported from Linux allowing unmodified operating system guests</td>
   </tr>
   <tr>
     <td><a href="https://en.wikipedia.org/wiki/Solaris_Containers">Zones</a></td>
-    <td>OS Level Virtualized Application Containers</td>
+    <td>Operating system-level virtualization and isolation (containerization) with native performance</td>
   </tr>
   <tr>
-    <td><a href="http://www.serverwatch.com/tutorials/article.php/3831881/Say-Cheese-OpenSolaris-Time-Slider.htm">Time-Slider</a></td>
+    <td><a href="https://www.serverwatch.com/tutorials/article.php/3831881/Say-Cheese-OpenSolaris-Time-Slider.htm">Time&nbsp;Slider</a></td>
     <td>Automated ZFS Snapshots and Rollbacks</td>
   </tr>
   <tr>
@@ -87,47 +89,77 @@ Project Indiana was led by Ian Murdock, founder of the Debian Linux Distribution
 
 <br>
 
-<h2>Release Notes</h2>
+<h2>Why OpenIndiana and illumos?</h2>
 
-<a href="https://wiki.openindiana.org/oi/Release+Notes">https://wiki.openindiana.org/oi/Release+Notes</a>
+<p>In contrast to Linux, illumos is developed as a whole operating system
+with tight coupling between kernel and userspace tools, therefore technologies
+are very well integrated with each other:</p>
+
+<ul>
+  <li>When operating system is updated by the IPS package management system,
+    ZFS features like Boot Environment and snapshots are leveraged in every
+    respect of the process.</li><br>
+  <li>When Global Zone is updated, IPS makes sure, that packages
+    in Zones are updated as well, or, at minimum, are kept in a coherent state.</li><br>
+  <li>System utilities like <tt>pgrep</tt>, <tt>pkill</tt>, <tt>ps</tt>, <tt>ptree</tt>, <tt>svcprop</tt>,
+    and <tt>ipmon</tt> have <tt>-z</tt> option, which enables them to operate on a particular Zone without the need
+    to login to the Zone first.</li><br>
+  <li>The Crossbow network virtualization framework and Role-Based Access Control
+    (RBAC) model frameworks are also very well integrated with the rest of the system.</li><br>
+  <li>Locality Groups (NUMA affinity) have been provided by the core operating system
+    for many years, contrasting with other systems' reliance on "third-party" libraries.</li>
+</ul>
+
+<p>illumos offers features that have equivalents (Zones are inspired from FreeBSD Jails,
+KVM is ported from Linux), successors (eBPF dynamic tracing), or have been replicated on
+other systems (DTrace, ZFS, Zones, kernel scheduler, slab allocator).</p>
+
+<p>Considering the cross-pollination of technologies with FreeBSD and Linux, our code-base
+had contributed in a notable extent to operating system's innovation. Hence we still strive
+for relevance, observability, and consistency!</p>
 
 <br>
+
+<h2>Release Notes</h2>
+
+<p><a href="https://wiki.openindiana.org/oi/Release+Notes">https://wiki.openindiana.org/oi/Release+Notes</a></p>
+
 <br>
 
 <h2>About Us</h2>
 
-<p>The OpenIndiana Project is a community of volunteers and UNIX enthusiasts from around the world.
+<p>The OpenIndiana Project is a community of volunteers and Unix enthusiasts from around the world.
 Currently build servers, hosting and bandwidth is donated by EveryCity hosting in the UK.</p>
 
 <br>
 
 <h2>Getting Involved</h2>
 
-<p>Our success as a distribution depends upon the success of our community, which is why we would like to invite all those interested in the future of OpenIndiana to participate and get involved!</p>
+<p>Because our success as a operating system distribution depends upon the success of our community,
+please, feel welcome in our mailing lists, IRC channels, and GitHub projects.</p>
 
-<p>We have many resources from which you can get started, including our Wiki, Mailing Lists and IRC Channel.</p>
- 
-<ul>
-  <li>For developers we have Vagrant development images which can be easily deployed.</li><br> 
-  <li>For end users we have publicly available IPS repositories for updating your installation with the latest software and security fixes.</li>
-</ul>
+<p>Developers can instantly leverage <a href="https://app.vagrantup.com/openindiana/boxes/hipster">OpenIndiana Vagrant box</a>
+on Linux, Microsoft Windows, and Apple macOS via VirtualBox.</p>
 
 <br>
 
-<h2>Links</h2>
+<h2>Resources</h2>
 
 <ul>
-  <li>Website: <a href="https://openindiana.org">https://openindiana.org</a></li><br>
-  <li>Wiki: <a href="https://wiki.openindiana.org">https://wiki.openindiana.org</a></li><br>
-  <li>Mailing Lists: <a href="http://openindiana.org/mailman">http://openindiana.org/mailman</a></li><br>
-  <li>IRC Channel: #openindiana on irc.freenode.net</li>
+  <li>Website: <a href="https://www.openindiana.org">openindiana.org</a></li><br>
+  <li>Wiki: <a href="https://wiki.openindiana.org">wiki.openindiana.org</a></li><br>
+  <li>Mailing Lists: <a href="http://openindiana.org/mailman">openindiana.org/mailman</a></li><br>
+  <li>General-purpose IRC channel: #openindiana on Freenode</li><br>
+  <li>Developer-oriented IRC channel: #oi-dev on Freenode</li><br>
 </ul>
-
-<br>
 
 <h2>License</h2>
 
-<a href="file:///etc/notices/LICENSE" title="OpenIndiana Licensing Information">OpenIndiana Licensing Information</a>
+<p><a href="file:///etc/notices/LICENSE">OpenIndiana Licensing Information</a></p>
+
+<br>
+
 </div>
+
 </body>
 </html>
