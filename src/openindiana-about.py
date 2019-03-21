@@ -38,14 +38,23 @@ PACKAGE   = "openindiana-welcome"
 VERSION   = "Development Version"
 LOCALEDIR = "%%DATADIR%%/locale"
 PIXMAPSDIR = "%%DATADIR%%/pixmaps"
-release_string = "OpenIndiana"
 
 copyright_string = N_("Copyright 2010 The OpenIndiana Project.\nCopyright 2010 Oracle Corporation and/or its affiliates.\nAll Rights Reserved. Use is subject to license terms.")
 
 release_text = N_("Release")
+system_text = N_("Hardware Platform")
 space_text = N_("Used Space")
 available_text = N_("Available Space")
 memory_text = N_("Memory")
+
+def get_version():
+        # This assumes standard OI /etc/release format
+        try:
+               with open('/etc/release', 'r') as f:
+                       line = f.readline().strip()
+                       return line.split(" ")[2]
+        except:
+               return VERSION
 
 def get_machine_info():
         # This is gross, assumes the file output is regular
@@ -177,10 +186,19 @@ class DialogOS(Gtk.Dialog):
                 # Version
                 release_label = Gtk.Label()
                 release_label.set_alignment(0, 0)
-                release_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(release_text), VERSION))
+                release_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(release_text), get_version()))
                 release_label.set_justify(Gtk.Justification.LEFT)
                 hbox = Gtk.HBox(False, 0)
                 hbox.pack_start(release_label, False, False, 12)
+                size_vbox.pack_start(hbox, False, False, 0)
+
+                # System Configuration
+                system_label = Gtk.Label()
+                system_label.set_alignment(0, 0)
+                system_label.set_markup("<span size=\"small\"><b>%s:</b></span> <span size=\"small\">%s</span>" % (_(system_text), get_machine_info()))
+                system_label.set_justify(Gtk.Justification.LEFT)
+                hbox = Gtk.HBox(False, 0)
+                hbox.pack_start(system_label, False, False, 12)
                 size_vbox.pack_start(hbox, False, False, 0)
 
                 # Used Space
