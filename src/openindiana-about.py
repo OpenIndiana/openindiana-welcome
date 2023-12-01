@@ -1,4 +1,4 @@
-#!/usr/bin/python3.5
+#!%%PYTHON%%
 
 #
 # Copyright (c) 2010, 2017, Oracle and/or its affiliates. All rights reserved.
