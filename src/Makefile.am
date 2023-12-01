@@ -3,7 +3,7 @@
 bin_SCRIPTS = openindiana-about
 
 openindiana-about: openindiana-about.py Makefile
-	$(SED) 's|%%DATADIR%%|$(datadir)|g' $< >$@
+	$(SED) -e 's|%%DATADIR%%|$(datadir)|g' -e 's|%%PYTHON%%|$(PYTHON)|g' $< >$@
 	chmod +x $@
 
 CLEANFILES = $(bin_SCRIPTS)
